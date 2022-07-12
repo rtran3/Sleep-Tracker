@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="bedtimeTitle">
+      Bedtime
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header *ngIf="lastSummary!=''">
+      <ion-card-title>
+        <ion-icon name="analytics-sharp"></ion-icon>
+        Most Recent Log
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{loggedAt}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <strong>{{lastBedtime}}</strong>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-header *ngIf="lastSummary==''">
+      <ion-card-title>
+        <ion-icon name="analytics-sharp"></ion-icon>
+        Logging
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="lastSummary!=''">
+      <ion-label>{{lastSummary}}
+      </ion-label>
+    </ion-card-content>
+    <ion-item color="none" lines="none" button class="pair" *ngIf="lastSummary!=''" (click)="first()" detail>
+      <ion-label color="primary">
+        <strong>See Log</strong>
+      </ion-label>
+    </ion-item>
+    <ion-item color="none" lines="none" button class="pair" (click)="recordBedTime()" detail>
+      <ion-label color="primary">
+        <strong>Record Bedtime</strong>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Average Time Asleep
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{averageHours}} hours, {{averageMinutes}} minutes</ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Longest Time Asleep
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{longestSleepDate}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{longestSleepTime}}</ion-label>
+    </ion-card-content>
+    <ion-card-header>
+      <ion-card-title>
+        Shortest Time Asleep
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{shortestSleepDate}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{shortestSleepTime}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

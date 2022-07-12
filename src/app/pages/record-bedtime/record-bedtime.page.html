@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Record
+    </ion-title>
+     <ion-button color="none" (click)="dismiss()" slot="end">
+      <ion-label size="medium" color="primary">
+        Done
+      </ion-label>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item lines="none" button="true" id="open-date-input">
+      <ion-icon size="small" name="moon"></ion-icon>
+      <ion-label class="time">Bedtime</ion-label>
+      <ion-text class="time">{{ formattedDateTime }}</ion-text>
+      <ion-popover trigger="open-date-input" show-backdrop="false">
+        <ng-template>
+          <ion-datetime
+            #popoverDatetime
+            (ionChange)="formatDate(popoverDatetime.value)">
+          </ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+
+    <ion-item lines="none" button="true" id="open-date-input2">
+      <ion-icon size="small" name="notifications"></ion-icon>
+      <ion-label class="time">Wake Up</ion-label>
+      <ion-text class="time">{{ formattedDateTime2 }}</ion-text>
+      <ion-popover trigger="open-date-input2" show-backdrop="false">
+        <ng-template>
+          <ion-datetime
+            #popoverDatetime2
+            (ionChange)="formatDate2(popoverDatetime2.value)">
+          </ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+    <ion-item lines="none" button (click)="recordDateTime()">
+      <ion-label class="time" color="primary">
+        Save
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

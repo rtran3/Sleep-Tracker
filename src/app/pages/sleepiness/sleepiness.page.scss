@@ -1,0 +1,57 @@
+ion-content{
+  --background: none;
+  background-image: url('background.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+ion-card-title {
+  font-size:17px;
+  color:white;
+}
+
+.subtitle {
+  font-size:15px;
+}
+
+ion-item {
+  font-size:15px;
+}
+
+.radio {
+  font-size:17px;
+  text-align: center;
+}
+
+.test {
+  font-size:15px;
+}
+
+.sleepinessTitle {
+  text-align: center;
+  color:white;
+}
+ion-card-subtitle {
+  font-size:17px;
+}
+.list {
+  font-size:15px;
+  color:white;
+}
+.summary {
+  color:white;
+}
+
+ion-card {
+  background-color:#1a1a1a;
+}

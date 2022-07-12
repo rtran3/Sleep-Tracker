@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="sleepinessTitle">Sleepiness</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="lastSleepSummary!=''">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="analytics-sharp"></ion-icon>
+        Most Recent Log
+      </ion-card-title>
+      <ion-card-subtitle class="subtitle">
+        {{loggedAt}}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="subtitle">
+        <strong>{{lastDate}}</strong>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label class="summary" text-wrap>{{lastSleepSummary}}</ion-label>
+    </ion-card-content>
+    <ion-item color="none" lines="none" button (click)="second()" detail>
+      <ion-label color="primary">
+        <strong>See Log</strong>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="radio">How Are You Feeling?</ion-card-title>
+    </ion-card-header>
+    <ion-radio-group [(ngModel)]="radioValue">
+      <ion-item color="none" lines="none" class="test" *ngFor="let option of sleepinessList">
+        <ion-label class="list" text-wrap>{{option.item}}</ion-label>
+        <ion-radio class="list" slot="start" value={{option.itemNum}} ></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-button (click)="save()" color="none">
+      <ion-label color="primary"><strong>Save</strong></ion-label>
+    </ion-button>
+  </ion-card>
+</ion-content>
